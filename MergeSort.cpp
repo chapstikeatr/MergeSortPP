@@ -6,14 +6,15 @@
 #include <iostream>
 #include <random>
 #include <stdexcept>
+#include <vector>
 
 using namespace std;
-void merge(int *arr, int m, int l, int r) {
+void merge(vector<int>& arr, int m, int l, int r) {
   int ls = m - l + 1;
   int rs = r - m;
 
-  int arrL[ls];
-  int arrR[rs];
+  vector<int> arrL(ls);
+  vector<int> arrR(rs);
 
   for (int i = 0; i < ls; i++) {
     arrL[i] = arr[l + i];
@@ -50,7 +51,7 @@ void merge(int *arr, int m, int l, int r) {
   }
 }
 
-void mergeSort(int *arr, int l, int r) {
+void mergeSort(vector<int>& arr, int l, int r) {
   if (l >= r) {
     return;
   }
@@ -68,18 +69,18 @@ int main(int argc, char *argv[]) {
     try {
       const int ARRAY_LEN = stoi(argv[1]);
       random_device rd;
-      int arr[ARRAY_LEN];
+      vector<int> arr(ARRAY_LEN);
 
       for (int i = 0; i <= ARRAY_LEN - 1; i++) {
-        arr[i] = rd() % 100;
+        arr[i] = rd();
       }
-      printf("Before sorted: ");
-      for (int i = 0; i <= ARRAY_LEN - 1; i++) {
-        // cout << arr[i] << " ";
-        printf("%d ", arr[i]);
-      }
-
-      printf("\n");
+//       printf("Before sorted: ");
+//       for (int i = 0; i <= ARRAY_LEN - 1; i++) {
+//         // cout << arr[i] << " ";
+//         printf("%d ", arr[i]);
+//       }
+// 
+      //printf("\n");
 
       using clock = chrono::steady_clock;
       auto start = clock::now();
@@ -90,14 +91,14 @@ int main(int argc, char *argv[]) {
       chrono::duration<double> elapsed = end - start;
 
       cout << ARRAY_LEN << "," << elapsed.count() << endl;
-      printf("After sorted: ");
-      for (int i = 0; i <= ARRAY_LEN - 1; i++) {
-        // cout << arr[i] << " ";
-        printf("%d ", arr[i]);
-      }
+      //printf("After sorted: ");
+//       for (int i = 0; i <= ARRAY_LEN - 1; i++) {
+//         // cout << arr[i] << " ";
+//         printf("%d ", arr[i]);
+//       }
 
       sorted = true;
-      printf("\n");
+      //printf("\n");
     } catch (const std::invalid_argument &e) {
       printf("Error: invalid_argument - not and integer!\n");
       printf("Enter an Integer: ");
