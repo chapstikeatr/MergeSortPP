@@ -6,12 +6,13 @@
 #SBATCH --partition=Centaurus
 #SBATCH --mem=30G
 
-srun $HOME/MergeSortPP/mergeSort 10
-srun $HOME/MergeSortPP/mergeSort 100
-srun $HOME/MergeSortPP/mergeSort 1000
-srun $HOME/MergeSortPP/mergeSort 10000
-srun $HOME/MergeSortPP/mergeSort 100000
-srun $HOME/MergeSortPP/mergeSort 1000000
-srun $HOME/MergeSortPP/mergeSort 10000000
-srun $HOME/MergeSortPP/mergeSort 100000000
-srun $HOME/MergeSortPP/mergeSort 1000000000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 10
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 100
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 1000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 10000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 100000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 1000000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 10000000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 100000000
+srun $HOME/MergeSortPP/MergeSortPP/mergeSort 1000000000
+
