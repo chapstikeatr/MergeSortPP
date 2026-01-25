@@ -4,7 +4,7 @@
 #include <chrono>
 #include <cstdio>
 #include <iostream>
-#include <random>
+#include <time.h>
 #include <stdexcept>
 #include <vector>
 
@@ -65,22 +65,15 @@ void mergeSort(vector<int>& arr, int l, int r) {
 
 int main(int argc, char *argv[]) {
   bool sorted = false;
+  srand(time(NULL));
   while (!sorted) {
     try {
       const int ARRAY_LEN = stoi(argv[1]);
-      random_device rd;
       vector<int> arr(ARRAY_LEN);
 
       for (int i = 0; i <= ARRAY_LEN - 1; i++) {
-        arr[i] = rd();
+        arr[i] = rand();
       }
-//       printf("Before sorted: ");
-//       for (int i = 0; i <= ARRAY_LEN - 1; i++) {
-//         // cout << arr[i] << " ";
-//         printf("%d ", arr[i]);
-//       }
-// 
-      //printf("\n");
 
       using clock = chrono::steady_clock;
       auto start = clock::now();
@@ -91,14 +84,8 @@ int main(int argc, char *argv[]) {
       chrono::duration<double> elapsed = end - start;
 
       cout << ARRAY_LEN << "," << elapsed.count() << endl;
-      //printf("After sorted: ");
-//       for (int i = 0; i <= ARRAY_LEN - 1; i++) {
-//         // cout << arr[i] << " ";
-//         printf("%d ", arr[i]);
-//       }
 
       sorted = true;
-      //printf("\n");
     } catch (const std::invalid_argument &e) {
       printf("Error: invalid_argument - not and integer!\n");
       printf("Enter an Integer: ");
